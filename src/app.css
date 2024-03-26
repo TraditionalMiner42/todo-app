@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    * {
+        @apply p-2
+    }
+    .layout-header {
+        @apply text-header font-sans text-center
+    }
+    .task-list-wrapper {
+        @apply text-taskList w-full flex justify-center
+    }
+}
+
+@layer components {
+    .btn-wrapper {
+        @apply text-center
+    }
+    .btn {
+        @apply px-4 py-2 m-2 border text-button rounded-md hover:bg-slate-200;
+    }
+    .input-task {
+        @apply px-2 py-2 m-2 border rounded-md
+    }
+    .task-list {
+        @apply items-start
+    }
+    .task-list .checkbox {
+        @apply mx-2;
+    }
+}
+
+.layout-header {
+    font-size: 2.5rem;
+    font-family: sans-serif;
+    text-transform: uppercase lowercase;
+}

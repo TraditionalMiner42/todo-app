@@ -18,7 +18,9 @@
 	// });
 </script>
 
-{#if $numCheckedTasks === 1}
-	<button>Rename</button>
-{/if}
-<button>Delete</button>
+<div class="btn-wrapper">
+	{#if $numCheckedTasks === 1}
+		<button class="btn">Rename</button>
+	{/if}
+	<button class="btn">Delete</button>
+</div>

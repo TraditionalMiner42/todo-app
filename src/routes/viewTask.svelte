@@ -32,18 +32,23 @@
 	});
 </script>
 
-<ul>
-	{#each tasks as task}
-		{#if tasks.length !== 0}
-			{#if $toggleEdit && $page.url.pathname === "/edit"}
-				<input
-					type="checkbox"
-					bind:checked={task.checked}
-					on:change={(e) => handleCheckboxChange(e, task.id)}
-				/>{task.id}: {task.task}
-			{:else}
-				<li>{task.id}: {task.task}</li>
+<div class="task-list-wrapper">
+	<ul class="task-list">
+		{#each tasks as task}
+			{#if tasks.length !== 0}
+				{#if $toggleEdit && $page.url.pathname === "/edit"}
+					<div class="checkbox-row">
+						<input
+							class="checkbox"
+							type="checkbox"
+							bind:checked={task.checked}
+							on:change={(e) => handleCheckboxChange(e, task.id)}
+						/>{task.task}
+					</div>
+				{:else}
+					<li class="task">- {task.task}</li>
+				{/if}
 			{/if}
-		{/if}
-	{/each}
-</ul>
+		{/each}
+	</ul>
+</div>

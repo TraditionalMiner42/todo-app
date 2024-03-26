@@ -17,14 +17,13 @@
 	};
 
 	toggleEditTask = () => {
-		// toggleEdit = !toggleEdit;
 		toggleEdit.set(!$toggleEdit);
 		if ($toggleEdit) goto("/edit");
 		else goto("/");
 	};
 
 	const unsubscribe = toggleEdit.subscribe(
-		(value) => (toggleEditButton = value)
+		(toggleEditTask) => (toggleEditButton = toggleEditTask)
 	);
 	onDestroy(unsubscribe);
 </script>
@@ -32,7 +31,10 @@
 <!-- {#if toggleAdd}
 	<AddTask />
 {:else} -->
-<button on:click={toggleAddTask}>Add Task</button>
-<button on:click={() => toggleEditTask()}>Edit Task</button>
-<button on:click={clearTaskList}>Clear Task</button>
+<div class="btn-wrapper">
+	<button class="btn" on:click={toggleAddTask}>Add Task</button>
+	<button class="btn" on:click={() => toggleEditTask()}>Edit Task</button>
+	<button class="btn" on:click={clearTaskList}>Clear Task</button>
+</div>
+
 <!-- {/if} -->
