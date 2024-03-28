@@ -6,6 +6,3 @@
 <header class="layout-header">Your To-do List</header>
 <svelte:component this={ViewTask} />
 <slot />
-
-<style lang="postcss">
-</style>

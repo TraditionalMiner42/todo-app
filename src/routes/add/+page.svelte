@@ -34,6 +34,7 @@
 		placeholder="Add Task"
 		on:keydown={handleKeyPressed}
 		bind:value={task}
+		contenteditable="true"
 	/>
 	<button class="btn" on:click={handleClick}>Add</button>
 </div>

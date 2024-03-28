@@ -1,47 +1,26 @@
 <script>
-	import { onDestroy } from "svelte";
-	import { taskList, toggleEdit } from "./store.js";
+	import { taskList, checkedTaskId } from "./store.js";
 	import { page } from "$app/stores";
-
-	let unsubscribe;
-	let tasks = [];
 
 	const handleCheckboxChange = (event, taskId) => {
 		const isChecked = event.target.checked;
-		// console.log(`Task ${taskId} is checked: ${isChecked}`);
-		updateTasks(taskId, isChecked);
-	};
-
-	const updateTasks = (taskId, isChecked) => {
-		tasks = tasks.map((task) => {
-			if (task.id === taskId) {
-				return { ...task, checked: isChecked };
-			}
-			return task;
+		checkedTaskId.update((taskIds) => {
+			return isChecked
+				? [...taskIds, taskId]
+				: taskIds.filter((id) => id != taskId);
 		});
 	};
-
-	$: {
-		unsubscribe = taskList.subscribe(
-			(updateTasks) => (tasks = updateTasks)
-		);
-	}
-
-	onDestroy(() => {
-		unsubscribe();
-	});
 </script>
 
 <div class="task-list-wrapper">
 	<ul class="task-list">
-		{#each tasks as task}
-			{#if tasks.length !== 0}
-				{#if $toggleEdit && $page.url.pathname === "/edit"}
+		{#each $taskList as task}
+			{#if $taskList.length !== 0}
+				{#if $page.url.pathname === "/edit"}
 					<div class="checkbox-row">
 						<input
 							class="checkbox"
 							type="checkbox"
-							bind:checked={task.checked}
 							on:change={(e) => handleCheckboxChange(e, task.id)}
 						/>{task.task}
 					</div>
