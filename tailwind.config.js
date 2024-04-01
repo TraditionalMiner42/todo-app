@@ -10,9 +10,9 @@ export default {
 			white: "#FFFFFF",
 		},
 		fontSize: {
-			header: ["36px"],
-			taskList: ["18px"],
-			button: ["20px"],
+			header: ["48px"],
+			taskList: ["24px"],
+			button: ["28px"],
 		},
 		extend: {},
 	},

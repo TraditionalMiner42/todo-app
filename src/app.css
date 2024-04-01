@@ -7,7 +7,7 @@
         @apply p-1 bg-lightBiege
     }
     .layout-header {
-        @apply text-header font-sans text-center text-darkBlue font-semibold
+        @apply text-header font-sans text-center text-darkBlue font-semibold tracking-wider
     }
     .task-list-wrapper {
         @apply text-taskList w-full flex justify-center
@@ -22,15 +22,15 @@
         @apply px-4 py-2 m-2 text-button rounded-md bg-lightCyan hover:bg-cyan;
     }
     .input-task {
-        @apply px-2 py-2 m-2 rounded-md bg-white
+        @apply px-2 py-2 m-2 text-taskList rounded-md bg-white
     }
     .task-list {
-        @apply items-start
+        @apply items-start cursor-pointer
     }
     .task-list .checkbox {
-        @apply mx-2;
+        @apply mx-2 cursor-pointer
     }
     .checkbox-row, .task {
-        @apply px-6 py-3 my-3 mx-6 border rounded-md shadow-md
+        @apply px-6 py-3 my-3 mx-6 rounded-md shadow-md bg-white cursor-grab
     }
 }
