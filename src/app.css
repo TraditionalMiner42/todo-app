@@ -4,7 +4,7 @@
 
 @layer base {
     * {
-        @apply p-1 bg-lightBiege
+        @apply p-1 bg-lightBiege align-middle
     }
     .layout-header {
         @apply text-header font-sans text-center text-darkBlue font-semibold tracking-wider
@@ -28,7 +28,7 @@
         @apply items-start cursor-pointer
     }
     .task-list .checkbox {
-        @apply mx-2 cursor-pointer
+        @apply mx-4 cursor-pointer p-4 transform scale-125
     }
     .checkbox-row, .task {
         @apply px-6 py-3 my-3 mx-6 rounded-md shadow-md bg-white cursor-grab
